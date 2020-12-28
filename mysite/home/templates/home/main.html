@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>{{ settings.APP_NAME }}</title>
+</head>
+<body>
+    <h1>Welcome to {{ settings.APP_NAME }}</h1>
+    <p>
+    Here are some samples (Each will open in a new tab):
+    <ul>
+        <li><a href="hello" target="_blank">hello</a> - A very simple view</li>
+        <li><a href="autos" target="_blank">autos</a> - Autos CRUD
+            (<a href="https://www.dj4e.com/assn/dj4e_autos.md" target="_blank">Assignment</a>)
+        </li>
+        <li><a href="cats" target="_blank">cats</a> - Cats CRUD</li>
+        <li><a href="polls" target="_blank">polls</a> - Polls App</li>
+        <li><a href="ads" target="_blank">ads</a> - Ads App</li>
+    </ul>
+    </p>
+<p>
+{% if user.is_authenticated %}
+<p>Authenticated as
+<pre>
+Name: {{ user.get_full_name }}
+Email: {{ user.email }}
+Id: {{ user.id }}
+</pre>
+</p>
+<p>You can <a href="/accounts/logout">Logout</a></p>
+{% else %}
+<p>You can <a href="/accounts/login">Login</a> if you like.</p>
+{% endif %}
+</p>
+</body>
+</html>
